@@ -41,7 +41,7 @@ const Search = ({
         onBlur={() =>
           setTimeout(() => {
             clear();
-          }, 100)
+          }, 500)
         }
       />
       <Div className="icon">
