@@ -42,7 +42,7 @@ body {
   border: 1px solid #777777;
   border-radius: 0.3vmax;
   overflow-y: auto;
-  z-index: 1;
+  z-index: 5;
 }
 .search::-webkit-scrollbar {
   width: 0.4vw;
