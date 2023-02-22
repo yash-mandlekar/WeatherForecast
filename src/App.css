@@ -7,24 +7,18 @@
 }
 html,
 body {
-  height: 100vh;
-  width: 100vmax;
-  background-color: #005986;
-  user-select: none;
+  height: 100%;
+  width: 100%;
+  /* background-color: #005986; */
+  background-color: rgb(182, 182, 182);
+  /* user-select: none; */
 }
-.container {
-  height: 100vh;
-  width: 100vmax;
+.cnt {
   display: flex;
   flex-direction: column;
 }
 .nav {
-  width: 100vmax;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #002132;
-  padding: 0 2vw 0 0;
+  background-color: rgb(27, 27, 27);
 }
 .nav h3 {
   font-size: 2vmax;
@@ -38,79 +32,98 @@ body {
 .nav h3 span {
   margin-left: 10px;
 }
-
-input {
-  font-size: 1vw;
-  width: 20vw;
-  outline: none;
-  border: none;
-  padding: 0.5vw;
-  border-radius: 0.5vmax 0 0 0.5vmax;
-}
 .search {
   position: absolute;
-  top: 100%;
+  top: 110%;
   min-height: 0vw;
   max-height: 15vw;
-  width: 20vmax;
+  width: 64%;
   background-color: white;
   border: 1px solid #777777;
+  border-radius: 0.3vmax;
   overflow-y: auto;
+  z-index: 1;
 }
 .search::-webkit-scrollbar {
   width: 0.4vw;
-  background-color: grey;
+  background-color: rgb(22, 0, 88);
 }
 .search::-webkit-scrollbar-thumb {
   width: 0.4vw;
-  background-color: burlywood;
+  background-color: #ffffffa9;
   border-radius: 100px;
 }
 p {
+  padding: 0.5vmax;
   padding-left: 0.5vw;
   /* background-color: blue; */
   margin-bottom: 0vw;
-  border-bottom: 1px solid rgb(177, 162, 162);
+  /* border-bottom: 1px solid rgb(177, 162, 162); */
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+  font-size: 1.3vmax;
+  font-family: Roboto;
 }
 p:hover {
   cursor: pointer;
-  background-color: #d8cfcf;
+  background-color: #7aedff9a;
 }
 .icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2vw;
-  height: 2.5vw;
-  width: 4.5vw;
+  width: 4%;
   background-color: #b1afaf;
-  border-radius: 0 0.5vmax 0.5vmax 0;
+  border-radius: 0 0.3vmax 0.3vmax 0;
 }
-ion-icon {
-  height: 2vw;
-  width: 4.5vw;
+.icon svg {
+  width: 60%;
+  height: 60%;
 }
 .icon:hover {
   background-color: grey;
 }
 .inp {
+  width: 100%;
   display: flex;
+  justify-content: center;
   position: relative;
+  margin-top: 1vh;
+}
+input {
+  font-size: 1.3vmax;
+  width: 60%;
+  outline: none;
+  border: none;
+  padding: 0.5vmax;
+  border-radius: 0.3vmax 0 0 0.3vmax;
+}
+input:focus {
+  border: 2px solid #0004ff86;
+  border-right: none;
+}
+input:focus + .icon {
+  border: 2px solid #0004ff86;
+  border-left: none;
 }
 .main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vmax;
+  width: 100%;
 }
-.box-cnt {
+.main .box-cnt {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   width: 40vw;
   padding: 1vh;
-  border-radius: 1vw; 
-  background: linear-gradient(to right bottom, #3636f5, white);
+  border-radius: 1vw;
+  font-family: Roboto;
+  transition: all 0.5s;
+}
+.box-cnt {
+  width: 30vw;
+  padding: 1vh;
+  border-radius: 1vw;
   font-family: Roboto;
   transition: all 0.5s;
 }
@@ -119,7 +132,6 @@ ion-icon {
   transform: translate(0, -0.5vh);
   box-shadow: 10px 10px 28px 0px;
 }
-
 .box {
   display: flex;
   flex-direction: column;
@@ -139,4 +151,198 @@ img {
   font-weight: 500;
   color: #002132;
   margin: 1vh 0;
+}
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1vh;
+}
+.forecast .img-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.forecast .img-box img {
+  height: 9vh;
+}
+
+/* uiverse */
+.container {
+  position: relative;
+  font-family: sans-serif;
+  padding: 0 1vmax;
+}
+.container .boxer {
+  width: 12vmax;
+  height: 15.875em;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 0.7rem;
+  transition: all ease 0.3s;
+}
+.container .boxer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container .boxer .title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+.container .boxer div strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.container .boxer div p {
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  padding: 0;
+}
+.container .boxer div span {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+.container .boxer div span:nth-child(3) {
+  font-weight: 500;
+  margin-right: 0.2rem;
+}
+.container .boxer:hover {
+  box-shadow: 0px 0px 20px 1px #ffbb763f;
+  border: 1px solid rgba(255, 255, 255, 0.454);
+}
+.cardm {
+  padding: 7em 0em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 46.64%;
+  left: 50%;
+}
+
+.card {
+  /* position: absolute; */
+  width: 250px;
+  height: 130px;
+  border-radius: 25px;
+  background: whitesmoke;
+  color: black;
+  z-index: 2;
+  transition: 0.4s ease-in-out;
+}
+
+.weather {
+  position: relative;
+  margin: 1em;
+}
+
+.main2 {
+  font-size: 2em;
+  position: relative;
+  top: -3.4em;
+  text-align: end;
+  padding-right: 1.3em;
+}
+
+.mainsub {
+  position: relative;
+  top: -10.2em;
+  font-size: 0.6em;
+  text-align: -webkit-center;
+  padding-left: 9em;
+}
+
+.card2 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 240px;
+  height: 130px;
+  border-radius: 35px;
+  background: white;
+  z-index: 1;
+  transition: 0.4s ease-in-out;
+}
+
+.card:hover {
+  background-color: #ffe87c;
+  cursor: pointer;
+}
+
+.card:hover + .card2 {
+  height: 300px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.card:hover + .card2 .lower {
+  top: 20.2em;
+}
+
+.upper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  color: black;
+  left: 1.8em;
+  top: 0.5em;
+  gap: 4em;
+}
+
+.humiditytext {
+  position: relative;
+  left: 3.6em;
+  top: 2.7em;
+  font-size: 0.6em;
+}
+
+.airtext {
+  position: relative;
+  left: 3.8em;
+  top: 2.7em;
+  font-size: 0.6em;
+}
+
+.lower {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  text-align: center;
+  color: black;
+  left: 3em;
+  top: 1em;
+  margin-top: 0.7em;
+  font-size: 0.7em;
+  transition: 0.4s ease-in-out;
+}
+
+.aqi {
+  margin-right: 3.25em;
+}
+
+.realfeel {
+  margin-right: 1.8em;
+}
+
+.card3 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 30px;
+  top: 4.7em;
+  left: -2.4em;
+  font-size: 1.24em;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  background: limegreen;
+  transition: 0.4s ease-in-out;
 }
