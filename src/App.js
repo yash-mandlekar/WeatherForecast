@@ -331,7 +331,7 @@ const App = () => {
       )}
       {forecast.length > 0 && (
         <Div className="forecast container">
-          {forecast.splice(0, 7).map((item, index) => (
+          {forecast.map((item, index) => index < 7 && (
             <div key={index} className="boxer">
               <span className="title img-box">
                 <img src={`icons/${item.weather[0].icon}.png`} />

@@ -154,8 +154,10 @@ img {
 }
 .forecast {
   display: flex;
-  justify-content: space-between;
+ gap: 1vmax;
   margin-top: 1vh;
+  width: 100%;
+  flex-wrap: wrap;
 }
 .forecast .img-box {
   display: flex;
@@ -174,8 +176,8 @@ img {
   padding: 0 1vmax;
 }
 .container .boxer {
-  width: 12vmax;
-  height: 15.875em;
+  width: 13vmax;
+  /* height: 15.875em; */
   padding: 1rem;
   background-color: rgba(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, 0.222);

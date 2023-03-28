@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import cities from "../cities.json";
 import { GoSearch } from "react-icons/go";
 import { GrClose } from "react-icons/gr";
@@ -66,4 +66,4 @@ const Search = ({
   );
 };
 
-export default Search;
+export default memo(Search);
