@@ -36,7 +36,7 @@ body {
   position: absolute;
   top: 110%;
   min-height: 0vw;
-  max-height: 15vw;
+  max-height: 15vmax;
   width: 64%;
   background-color: white;
   border: 1px solid #777777;
@@ -174,9 +174,10 @@ img {
   position: relative;
   font-family: sans-serif;
   padding: 0 1vmax;
+  justify-content: center;
 }
 .container .boxer {
-  width: 13vmax;
+  width: 22vh;
   /* height: 15.875em; */
   padding: 1rem;
   background-color: rgba(255, 255, 255);
@@ -347,4 +348,20 @@ img {
   border-bottom-right-radius: 35px;
   background: limegreen;
   transition: 0.4s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  input {
+    width: 80%;
+    font-size: 1.2rem;
+  }
+  .icon {
+    width: 10%;
+  }
+  .search {
+    width: 90%;
+  }
+  .search p{
+    font-size: 1.2rem;
+
+  }
 }
