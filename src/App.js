@@ -12,12 +12,11 @@ const App = () => {
   const [searchBox, setSearchBox] = useState(false);
   const [weather, setweather] = useState(null);
   const [forecast, setForecast] = useState([]);
-  const [state, setstate] = useState("");
+
   const weatherHandler = async (e) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${
-      city[e]?.name || "bhopal"
+      city[e]?.name || "indore"
     }&appid=7881fd3c5dff7aff74a7cd7a86bd9a40`;
-    setstate(city[e]?.state ? city[e]?.state : "Madhya Pradesh");
     const response = await fetch(url);
     const data = await response.json();
     const { lat, lon } = data.coord;
@@ -79,7 +78,7 @@ const App = () => {
               <div className="mainsub">
                 {weather.name},
                 <br />
-                {state}
+                {weather?.sys?.country}
               </div>
             </div>
 
@@ -331,22 +330,25 @@ const App = () => {
       )}
       {forecast.length > 0 && (
         <Div className="forecast container">
-          {forecast.map((item, index) => index < 7 && (
-            <div key={index} className="boxer">
-              <span className="title img-box">
-                <img src={`icons/${item.weather[0].icon}.png`} />
-                {days[index]}
-              </span>
-              <div>
-                <strong>Temp: {item.main.temp_max} °C </strong>
-                <p>{item.weather[0].main}</p>
-                <span>Humidity: {item.main.humidity}</span>
-                <span>Sea Level: {item.main.sea_level} </span>
-              </div>
-              Wind Speed:
-              {item.wind.speed}
-            </div>
-          ))}
+          {forecast.map(
+            (item, index) =>
+              index < 7 && (
+                <div key={index} className="boxer">
+                  <span className="title img-box">
+                    <img src={`icons/${item.weather[0].icon}.png`} />
+                    {days[index]}
+                  </span>
+                  <div>
+                    <strong>Temp: {item.main.temp_max} °C </strong>
+                    <p>{item.weather[0].description}</p>
+                    <span>Humidity: {item.main.humidity}</span>
+                    <span>Sea Level: {item.main.sea_level} </span>
+                  </div>
+                  Wind Speed:
+                  {item.wind.speed}
+                </div>
+              )
+          )}
         </Div>
       )}
     </Div>
