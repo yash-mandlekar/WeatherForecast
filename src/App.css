@@ -13,6 +13,16 @@ body {
   background-color: rgb(49, 200, 255);
   /* user-select: none; */
 }
+.cloud1{
+  top: 7vw;
+  left: 5vw;
+  position: absolute;
+}
+.cloud2{
+  top: 17vw;
+  right: 15vw;
+  position: absolute;
+}
 .cnt {
   display: flex;
   flex-direction: column;
@@ -346,9 +356,25 @@ img {
   font-size: 1.24em;
   border-bottom-left-radius: 35px;
   border-bottom-right-radius: 35px;
-  background: limegreen;
   transition: 0.4s ease-in-out;
 }
+
+.clear{
+  background: limegreen;
+}
+
+.haze{
+  background-color: orange;
+}
+
+.clouds{
+  background-color: yellow;
+}
+.rain{
+  background-color: red;
+}
+
+
 @media screen and (max-width: 768px) {
   input {
     width: 80%;
@@ -362,6 +388,8 @@ img {
   }
   .search p{
     font-size: 1.2rem;
-
   }
+  .cloud{
+    display: none;
+  } 
 }

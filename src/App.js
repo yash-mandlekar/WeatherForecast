@@ -19,12 +19,13 @@ const App = () => {
     }&appid=7881fd3c5dff7aff74a7cd7a86bd9a40`;
     const response = await fetch(url);
     const data = await response.json();
+
     const { lat, lon } = data.coord;
     const res = await fetch(
       `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
     const data1 = await res.json();
-    console.log("data1", data1.list);
+    console.log(data);
     setForecast(data1.list);
     setweather(data);
     setInp("");
@@ -322,12 +323,18 @@ const App = () => {
                     {weather.main.pressure} mbar
                   </div>
                 </div>
-                <div className="card3">Healthy</div>
+
+                <div className={`card3 ${weather?.weather[0]?.main.toLowerCase()}`}>
+                  {weather?.weather[0]?.main}
+                </div>
               </div>
             </div>
           </div>
         </Div>
       )}
+      <img className="cloud cloud1" src="/cloud.svg" alt="" />
+      <img className="cloud cloud2" src="/cloud.svg" alt="" />
+
       {forecast.length > 0 && (
         <Div className="forecast container">
           {forecast.map(
@@ -341,7 +348,7 @@ const App = () => {
                   <div>
                     <strong>Temp: {item.main.temp_max} °C </strong>
                     <p>{item.weather[0].description}</p>
-                    <span>Humidity: {item.main.humidity}</span>
+                    <span>Humidity: {item.main.humidity}</span> <br />
                     <span>Sea Level: {item.main.sea_level} </span>
                   </div>
                   Wind Speed:
