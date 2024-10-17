@@ -5,6 +5,7 @@ import Span from "./miniComp/Span";
 import Navbar from "./Components/Navbar";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 import Search from "./Components/Search";
+import Landing from "./Components/Landing";
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const App = () => {
   const [inp, setInp] = useState("");
@@ -37,6 +38,7 @@ const App = () => {
   }, []);
   return (
     <Div className="cnt">
+      <Landing />
       <Navbar />
       <Search
         searchBox={searchBox}
@@ -324,7 +326,9 @@ const App = () => {
                   </div>
                 </div>
 
-                <div className={`card3 ${weather?.weather[0]?.main.toLowerCase()}`}>
+                <div
+                  className={`card3 ${weather?.weather[0]?.main.toLowerCase()}`}
+                >
                   {weather?.weather[0]?.main}
                 </div>
               </div>
