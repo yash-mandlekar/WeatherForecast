@@ -6,6 +6,8 @@ import Navbar from "./Components/Navbar";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 import Search from "./Components/Search";
 import Landing from "./Components/Landing";
+import { toast } from "react-toastify";
+
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const App = () => {
   const [inp, setInp] = useState("");
@@ -13,6 +15,7 @@ const App = () => {
   const [searchBox, setSearchBox] = useState(false);
   const [weather, setweather] = useState(null);
   const [forecast, setForecast] = useState([]);
+  const notify = (msg) => toast(msg ?? "Something went wrong");
 
   const weatherHandler = async (e) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${
@@ -26,7 +29,38 @@ const App = () => {
       `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
     const data1 = await res.json();
-    console.log(data);
+
+    const tempCelsius = data.main.temp - 273; // Convert Kelvin to Celsius
+
+    // Alert based on extreme temperature conditions
+    if (tempCelsius >= 40) {
+      notify("Extreme Heat Alert: Temperature is 40°C or above");
+    } else if (tempCelsius >= 35) {
+      notify("Heat Alert: Temperature is 35°C or above");
+    } else if (tempCelsius < 5) {
+      notify("Extreme Cold Alert: Temperature is below 5°C");
+    } else if (tempCelsius < 10) {
+      notify("Cold Alert: Temperature is below 10°C");
+    }
+
+    // Display temperature category
+    let category = "";
+    if (tempCelsius >= 10 && tempCelsius < 20) {
+      category = "Cold";
+    } else if (tempCelsius >= 20 && tempCelsius < 25) {
+      category = "Mild";
+    } else if (tempCelsius >= 25 && tempCelsius < 30) {
+      category = "Warm";
+    } else if (tempCelsius >= 30 && tempCelsius < 35) {
+      category = "Hot";
+    } else if (tempCelsius >= 35) {
+      category = "Extremely Hot";
+    }
+
+    if (category) {
+      // alert(`Temperature Category: ${category}`);
+      notify(`Temperature Category: ${category}`);
+    }
     setForecast(data1.list);
     setweather(data);
     setInp("");
@@ -37,7 +71,7 @@ const App = () => {
     weatherHandler();
   }, []);
   return (
-    <Div className="cnt">
+    <div className="cnt" style={{ backgroundColor: "#005986" }}>
       <Landing />
       <Navbar />
       <Search
@@ -362,7 +396,7 @@ const App = () => {
           )}
         </Div>
       )}
-    </Div>
+    </div>
   );
 };
 export default App;

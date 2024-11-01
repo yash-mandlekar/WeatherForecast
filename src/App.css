@@ -10,10 +10,14 @@ body {
   height: 100%;
   width: 100%;
   /* background-color: #005986; */
-  background-color: rgb(49, 200, 255);
   /* user-select: none; */
 }
-.landing{
+.cnt {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.landing {
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -22,36 +26,32 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: starting ease-in-out 5s;
+  /* animation: starting ease-in-out 5s; */
   top: -100%;
 }
-.landing img{
+.landing img {
   height: 70%;
 }
 @keyframes starting {
-  0%{
+  0% {
     top: 0%;
   }
-  80%{
+  80% {
     top: 0%;
   }
-  100%{
+  100% {
     top: -100%;
   }
 }
-.cloud1{
+.cloud1 {
   top: 7vw;
   left: 5vw;
   position: absolute;
 }
-.cloud2{
+.cloud2 {
   top: 17vw;
   right: 15vw;
   position: absolute;
-}
-.cnt {
-  display: flex;
-  flex-direction: column;
 }
 .nav {
   background-color: rgb(27, 27, 27);
@@ -190,7 +190,7 @@ img {
 }
 .forecast {
   display: flex;
- gap: 1vmax;
+  gap: 1vmax;
   margin-top: 1vh;
   width: 100%;
   flex-wrap: wrap;
@@ -385,21 +385,20 @@ img {
   transition: 0.4s ease-in-out;
 }
 
-.clear{
+.clear {
   background: limegreen;
 }
 
-.haze{
+.haze {
   background-color: orange;
 }
 
-.clouds{
+.clouds {
   background-color: yellow;
 }
-.rain{
+.rain {
   background-color: red;
 }
-
 
 @media screen and (max-width: 768px) {
   input {
@@ -412,10 +411,10 @@ img {
   .search {
     width: 90%;
   }
-  .search p{
+  .search p {
     font-size: 1.2rem;
   }
-  .cloud{
+  .cloud {
     display: none;
-  } 
+  }
 }
