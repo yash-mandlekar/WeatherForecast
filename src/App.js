@@ -71,7 +71,7 @@ const App = () => {
     weatherHandler();
   }, []);
   return (
-    <div className="cnt" style={{ backgroundColor: "#005986" }}>
+    <div className="cnt" style={{ backgroundColor: "#31c8ff" }}>
       <Landing />
       <Navbar />
       <Search
