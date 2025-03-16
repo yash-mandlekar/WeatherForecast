@@ -54,6 +54,9 @@ body {
   position: absolute;
 }
 .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: rgb(27, 27, 27);
 }
 .nav h3 {
